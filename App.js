@@ -76,6 +76,10 @@ export default class App extends React.Component {
   });
   cıkar=0;
   };
+  _urunekle(){
+     data.push("{key:21,total:35}")
+     
+  }
   render() {
     return (
       <View style={{ flex: 1, marginTop: 10, }}>
@@ -100,10 +104,7 @@ export default class App extends React.Component {
           }
         />
 
-        <Button 
-          title="Ürün ekle"
-          onPress={() => Alert.alert('Right button pressed')}
-        />
+        
       </View>
       <FlatList
         data={formatData(data, numColumns)}
