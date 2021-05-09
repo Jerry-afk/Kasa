@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, Dimensions , TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 
 let data = [
-  { key: 'Döner', toltal:20 }, { key: 'Kola', toltal:20 }, { key: 'Kebap' ,toltal : 40.55}, 
-  { key: 'D', toltal:20  }, { key: 'E', toltal:6.3  }, { key: 'F' , toltal:7.5 }, 
-  { key: 'G' , toltal:20}, { key: 'H', toltal:20}, { key: 'I', toltal:20 }, 
-  { key: 'J' , toltal:20},
+  { key: 'a', toltal:0.5 }, { key: 'K', toltal:1 }, { key: 'K' ,toltal : 1.5}, 
+  { key: 'D', toltal:2  }, { key: 'E', toltal:2.5  }, { key: 'F' , toltal:3 }, 
+  { key: 'G' , toltal:3.5}, { key: 'H', toltal:4}, { key: 'I', toltal:4.5 }, 
+  { key: 'J' , toltal:5}, { key: 'J' , toltal:5.5}, { key: 'J' , toltal:6},{ key: 'J' , toltal:6.5},
+  { key: 'J' , toltal:7}, { key: 'J' , toltal:7.5}, { key: 'J' , toltal:8}, { key: 'J' , toltal:8.5},
 ];
 
 const formatData = (data, numColumns) => {
@@ -19,7 +20,7 @@ const formatData = (data, numColumns) => {
 
   return data;
 };
-const numColumns = 3;
+const numColumns = 4;
 let cıkar=0;
 
 export default class App extends React.Component {
@@ -37,7 +38,7 @@ export default class App extends React.Component {
       <View
         style={styles.item}
       >
-      <Text style={styles.itemText}>{item.key +" = " + item.toltal}</Text>
+      <Text style={styles.itemText}>{item.toltal}</Text>
       </View>
       </TouchableOpacity>
     );
