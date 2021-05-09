@@ -20,6 +20,7 @@ const formatData = (data, numColumns) => {
   return data;
 };
 const numColumns = 3;
+let cıkar=0;
 
 export default class App extends React.Component {
   state={
@@ -31,6 +32,7 @@ export default class App extends React.Component {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
+      
       <TouchableOpacity  style={styles.item} onPress={() => this._hesap(item)} onLongPress={() => this._temizle(item)}>
       <View
         style={styles.item}
@@ -41,9 +43,18 @@ export default class App extends React.Component {
     );
   };
   _hesap(item){
+    if(cıkar==1)
+    {
+      this.setState({
+        toplam: this.state.toplam-item.toltal
+      });
+      cıkar=0
+    }
+    else {
     this.setState({
       toplam: this.state.toplam+item.toltal
     });
+  }
   };
   _temizle(item){
   alert("silmek ister misin")
@@ -68,7 +79,7 @@ export default class App extends React.Component {
         <Button
           title="Çıkar"
           color="red"
-          onPress={() => Alert.alert('Left button pressed')}
+          onPress={() => cıkar=1}
         />
 
         <Button 
