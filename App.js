@@ -107,6 +107,10 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
+    textAlign:'center',
+    fontSize:20,
+    color:'blue',
+    borderColor:'red'
   },
   item: {
     backgroundColor: '#4D243D',
