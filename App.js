@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions , TouchableOpacity, TextInput, Button} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions , TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 
 let data = [
   { key: 'Döner', toltal:20 }, { key: 'B', toltal:20  }, { key: 'C' ,toltal : 0}, 
@@ -24,7 +24,7 @@ let cıkar=0;
 
 export default class App extends React.Component {
   state={
-    toplam:0
+    toplam:0,
     };
     
   renderItem = ({ item, index }) => {
@@ -57,7 +57,17 @@ export default class App extends React.Component {
   }
   };
   _temizle(item){
-  alert("silmek ister misin")
+    Alert.alert(
+      "Ürün silme",
+      "Ürünü silmek ister misin?",
+      [
+        {
+          text: "Hayır",  
+          onPress: () => alert("hayır"),
+        },
+        { text: "Evet", onPress: () => alert("evet") }
+      ]
+    );
   }
   _temizle2(){
     this.setState({
