@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, Dimensions , TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 
 let data = [
-  { key: 'Döner', toltal:20 }, { key: 'B', toltal:20  }, { key: 'C' ,toltal : 0}, 
-  { key: 'D', toltal:20  }, { key: 'E', toltal:20  }, { key: 'F' , toltal:20 }, 
-  { key: 'G' , toltal:20 }, { key: 'H', toltal:20  }, { key: 'I', toltal:20  }, 
-  { key: 'J' , toltal:20 },
+  { key: 'Döner', toltal:20 }, { key: 'Kola', toltal:20 }, { key: 'Kebap' ,toltal : 40.55}, 
+  { key: 'D', toltal:20  }, { key: 'E', toltal:6.3  }, { key: 'F' , toltal:7.5 }, 
+  { key: 'G' , toltal:20}, { key: 'H', toltal:20}, { key: 'I', toltal:20 }, 
+  { key: 'J' , toltal:20},
 ];
 
 const formatData = (data, numColumns) => {
@@ -46,13 +46,14 @@ export default class App extends React.Component {
     if(cıkar==1)
     {
       this.setState({
-        toplam: this.state.toplam-item.toltal
+        toplam: (this.state.toplam-item.toltal).toFixed(2),
+        
       });
       cıkar=0
     }
     else {
     this.setState({
-      toplam: this.state.toplam+item.toltal
+      toplam: parseFloat(this.state.toplam)+item.toltal
     });
   }
   };
@@ -73,6 +74,7 @@ export default class App extends React.Component {
     this.setState({
     toplam: 0
   });
+  cıkar=0;
   };
   render() {
     return (
@@ -89,7 +91,13 @@ export default class App extends React.Component {
         <Button
           title="Çıkar"
           color="red"
-          onPress={() => cıkar=1}
+          onPress={() => {
+            if(this.state.toplam > 0){
+            cıkar=1}
+            else
+            {alert("Çıkarılacak bir değer yok")}
+          }
+          }
         />
 
         <Button 
